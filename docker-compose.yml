@@ -1,0 +1,11 @@
+version: '2'
+services:
+  nginx:
+    #image: openresty/openresty
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./nginx.conf.d/:/usr/local/openresty/nginx/conf/conf.d/
+      - ./lua:/usr/local/openresty/nginx/lua
